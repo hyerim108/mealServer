@@ -29,9 +29,9 @@ public class infoController {
 	
 	@RequestMapping("/let")
 	public String getIndex(Model model) {
-//		model.addAttribute("list",se.MEMBER());
+		model.addAttribute("list",s.MEMBER());
 //		System.out.println(model);
-		 return "이름"+model;
+		 return "이름";
 	}
 	
 }
