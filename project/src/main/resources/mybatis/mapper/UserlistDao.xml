@@ -10,7 +10,7 @@
     </select>-->
     
     <select id="MEMBER" resultType="com.it.springboot.daodto.UserlistDto">
-       select * from member where memberNO = '10001'
+       select passwd from member where memberNO='10001'
     </select>
 </mapper>
 

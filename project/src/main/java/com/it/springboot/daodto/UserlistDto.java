@@ -7,11 +7,8 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserlistDto {
-	private int memberNo;
+	private int memberNO;
 	private String memberName;
 	private String passwd;
-	
-	
-	
 	
 }
