@@ -24,7 +24,7 @@ public class infoController {
 	
 	@GetMapping("/")
 	public String main(){
-		return "d";
+		return "ssss";
 	}
 	
 	@RequestMapping("/let")
