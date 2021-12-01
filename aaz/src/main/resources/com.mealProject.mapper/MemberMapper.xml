@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mealProject.mapper.MemberMapper">
+    
+    <select id="findAll" resultType="com.mealProject.model.MemberModel">
+        SELECT * FROM member order by memberNO
+    </select>
+    <select id="findByName" resultType="com.mealProject.model.MemberModel">
+        SELECT * FROM member WHERE memberName = #{memberName}
+    </select>
+    
+     <select id="menuAll" resultType="com.mealProject.model.MenuModel">
+        SELECT * FROM menu order by menuNO
+    </select>
+    
+    <select id="menuFind" resultType="com.mealProject.model.MenuModel">
+        SELECT * FROM menu WHERE menuName = #{menuName}
+    </select>
+    
+    <select id="mealAll" resultType="com.mealProject.model.MealModel">
+        SELECT * FROM meal order by mealNO
+    </select>
+    
+    <!-- meal 숫자 하나씩 넣어주는거 -->
+    <select id="mealFind" resultType="com.mealProject.model.MealModel">
+        SELECT * FROM meal WHERE menuNo = #{menuNo}
+    </select>
+    
+    <select id="orderAll" resultType="com.mealProject.model.OrderListModel">
+        SELECT * FROM orderlist order by orderNo
+    </select>
+    <select id="AllOrderlist" resultType="com.mealProject.model.OrderListModel2">
+        select meal.menuNo,meal.mealName,member.memberName,orderCount,amount,orderDate from orderlist
+        INNER JOIN member on orderlist.memberNo = member.memberNo JOIN meal on orderlist.mealNo = meal.mealNo
+    </select>
+    
+    <select id="AllOrderitem" resultType="com.mealProject.model.OrderListModel2">
+       select meal.menuNo,meal.mealName,member.memberName,orderCount,amount,orderDate from orderlist
+				INNER JOIN member on orderlist.memberNo = member.memberNo
+				JOIN meal on orderlist.mealNo = meal.mealNo
+				where meal.mealName like CONCAT('%',#{menuName},'%')
+    </select>
+    <select id="mealShow" resultType="com.mealProject.model.MealModel">
+       select mealNo,price from meal where mealName=#{menuNo}
+    </select>
+    <select id="mealCount" resultType="Integer">
+       select count(*) from meal where menuNo=#{menuNo}
+    </select>
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <select id="mealAllH" resultType="com.mealProject.model.MealModel">
+        SELECT * FROM meal WHERE menuNo = 1
+    </select>
+    <select id="mealAllJ" resultType="com.mealProject.model.MealModel">
+        SELECT * FROM meal WHERE menuNo = 2
+    </select>
+    <select id="mealAllI" resultType="com.mealProject.model.MealModel">
+        SELECT * FROM meal WHERE menuNo = 3
+    </select>
+    <select id="mealAllY" resultType="com.mealProject.model.MealModel">
+        SELECT * FROM meal WHERE menuNo = 4
+    </select>
+</mapper>
+
+
+
+
+
