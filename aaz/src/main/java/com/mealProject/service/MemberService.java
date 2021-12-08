@@ -27,7 +27,9 @@ public class MemberService {
     public MemberModel selectMemberByName(String name){
         return memberMapper.findByName(name);
     }
-    
+    public List<MemberModel> FindMember(int memberNO){
+        return memberMapper.findByMember(memberNO);
+    }
     //menu 한식 중식 양식 일식
     public List<MenuModel> selectAllMenu() {
     	return memberMapper.menuAll();
@@ -60,6 +62,33 @@ public class MemberService {
     public int CountMeal(String name) {
     	return memberMapper.mealCount(name);
     }
+    public int CountMember() {
+    	return memberMapper.memberCount();
+    }
+    
+    public int dMeal(String name) {
+    	return memberMapper.delete(name);
+    }
+    
+    public int UpMeal(String name) {
+    	return memberMapper.update(name);
+    }
+    public int UpMealZero(int name) {
+    	return memberMapper.updateZero(name);
+    }
+    
+    public int InsertMeal(MealModel model) {
+        return memberMapper.mealInsert(model);
+     }
+    
+    public int UpdateMeal(MealModel model) {
+    	return memberMapper.updateMeal(model);
+    }
+    
+    public int InsertMember(MemberModel model) {
+    	return memberMapper.insertSawon(model);
+    }
+    
 //    public List<MealModel> selectAllH(){
 //        return memberMapper.mealAllH();
 //     }

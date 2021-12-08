@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -37,6 +38,10 @@ public class infoController {
 			return new ResultMsg<MemberModel>(true, "Success",  member); 
 		}
 		return new ResultMsg<MemberModel>(false, memberName+"을 찾을 수 없습니다.");
+	}
+	@GetMapping("/member/find/{memberNO}")
+	public @ResponseBody ResultMsg<MemberModel> getMemberNO(@PathVariable ("memberNO") int memberNO){
+		return new ResultMsg<MemberModel>(true, "Anything you want to send",  memberService.FindMember(memberNO));
 	}
 	@GetMapping("/menu/list")
 	public @ResponseBody ResultMsg<MenuModel> getMenu() {
@@ -84,6 +89,39 @@ public class infoController {
 	public @ResponseBody ResultMsg<String> getMealCount(@PathVariable ("mealNo") String mealNo){
 		return new ResultMsg<String>(true, "Anything you want to send", Integer.toString(memberService.CountMeal(mealNo)));
 	}
+	
+	@GetMapping("/member/count")
+	public @ResponseBody ResultMsg<String> getMemberCount(){
+		return new ResultMsg<String>(true, "Anything you want to send", Integer.toString(memberService.CountMember()));
+	}
+	@GetMapping("/meal/delete/{mealName}")
+	public @ResponseBody ResultMsg<String> getMealDelete(@PathVariable ("mealName") String mealName){
+		return new ResultMsg<String>(true, "Anything you want to send", Integer.toString(memberService.dMeal(mealName)));
+	}
+	@GetMapping("/meal/update/{mealName}")
+	public @ResponseBody ResultMsg<String> getMealUpdate(@PathVariable ("mealName") String mealName){
+		return new ResultMsg<String>(true, "Anything you want to send", Integer.toString(memberService.UpMeal(mealName)));
+	}
+	@GetMapping("/meal/updatezero/{mealNo}")
+	public @ResponseBody ResultMsg<String> getMealUpdateZero(@PathVariable ("mealNo") int mealNo){
+		return new ResultMsg<String>(true, "Anything you want to send", Integer.toString(memberService.UpMealZero(mealNo)));
+	}
+	@GetMapping("/meal/insert")
+	   public @ResponseBody ResultMsg<String> getMealInsert(MealModel model) {
+	      return new ResultMsg<String>(true, "Anything you want to send");
+	   }
+	
+	@GetMapping("/meal/updateMenu")
+	public @ResponseBody ResultMsg<String> getMealUpdateTrue(MealModel model){
+		return new ResultMsg<String>(true, "Anything you want to send");
+	}
+	
+	@GetMapping("/member/insert")
+	public @ResponseBody ResultMsg<String> getMemInsert( MemberModel model){
+		return new ResultMsg<String>(true, "Anything you want to send");
+	}
+	
+	
 	//1
 //	@GetMapping("/meal/listH")
 //	   public @ResponseBody ResultMsg<MealModel> getMealH(){

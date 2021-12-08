@@ -11,7 +11,9 @@
     <select id="findByName" resultType="com.mealProject.model.MemberModel">
         SELECT * FROM member WHERE memberName = #{memberName}
     </select>
-    
+    <select id="findByMember" resultType="com.mealProject.model.MemberModel">
+       select * from member where memberNO=#{memberNO}
+    </select>
      <select id="menuAll" resultType="com.mealProject.model.MenuModel">
         SELECT * FROM menu order by menuNO
     </select>
@@ -49,28 +51,31 @@
     <select id="mealCount" resultType="Integer">
        select count(*) from meal where menuNo=#{menuNo}
     </select>
-   
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <select id="mealAllH" resultType="com.mealProject.model.MealModel">
-        SELECT * FROM meal WHERE menuNo = 1
+     <select id="memberCount" resultType="Integer">
+       select max(memberNo) from member
     </select>
-    <select id="mealAllJ" resultType="com.mealProject.model.MealModel">
-        SELECT * FROM meal WHERE menuNo = 2
-    </select>
-    <select id="mealAllI" resultType="com.mealProject.model.MealModel">
-        SELECT * FROM meal WHERE menuNo = 3
-    </select>
-    <select id="mealAllY" resultType="com.mealProject.model.MealModel">
-        SELECT * FROM meal WHERE menuNo = 4
-    </select>
+    
+   <delete id ="delete">
+	delete from meal where mealName=#{param1}
+</delete>
+<update id="update">
+update meal set todayMeal=1 where mealName=#{param1}
+</update>
+<update id="updateZero">
+update meal set todayMeal=0 where mealNo=#{param1}
+</update>
+<insert id="mealInsert">
+INSERT INTO meal(menuNo,mealName,price,maxCount,tadayMeal) VALUES(#{menuNo},#{mealName},#{price},#{maxCount},#{tadayMeal})
+    </insert>
+    
+ <update id="updateMeal">
+	update meal set price=#{price},maxCount=#{maxCount} where mealName=#{mealName}
+</update>
+       
+<insert id="insertSawon" parameterType="MemberModel">
+	insert into member(memberName,passwd) values(#{memberName},#{passwd})
+</insert>
+
 </mapper>
 
 

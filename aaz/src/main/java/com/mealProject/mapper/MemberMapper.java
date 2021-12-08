@@ -16,6 +16,8 @@ import com.mealProject.model.OrderListModel2;
 public interface MemberMapper {
     List<MemberModel> findAll();
     MemberModel findByName(String name);
+    List<MemberModel> findByMember(int memberNO);
+    
     
     List<MenuModel> menuAll();
 	MenuModel menuFind(String name);
@@ -29,6 +31,17 @@ public interface MemberMapper {
 	
 	List<MealModel> mealShow(String name);
 	int mealCount(String name);
+	int memberCount();
+	
+	int delete(String id);
+	
+	int update(String name);
+	int updateZero(int i);
+    int mealInsert(MealModel model);
+    
+	int updateMeal(MealModel meal);
+	
+	int insertSawon(MemberModel member);
 //	List<MealModel> mealAllH();
 //   List<MealModel> mealAllJ();
 //   List<MealModel> mealAllI();
