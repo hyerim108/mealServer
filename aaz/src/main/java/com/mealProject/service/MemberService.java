@@ -30,7 +30,7 @@ public class MemberService {
     public List<MemberModel> FindMember(int memberNO){
         return memberMapper.findByMember(memberNO);
     }
-    //menu 한식 중식 양식 일식
+    //menu 
     public List<MenuModel> selectAllMenu() {
     	return memberMapper.menuAll();
     }
@@ -38,7 +38,7 @@ public class MemberService {
         return memberMapper.menuFind(name);
     }
     
-    //Meal menu 내용
+    //Meal menu 
     public List<MealModel> selectAllMeal(){
     	return memberMapper.mealAll();
     }

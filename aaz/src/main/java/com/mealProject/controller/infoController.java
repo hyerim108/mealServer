@@ -37,7 +37,7 @@ public class infoController {
 		if(member != null){
 			return new ResultMsg<MemberModel>(true, "Success",  member); 
 		}
-		return new ResultMsg<MemberModel>(false, memberName+"을 찾을 수 없습니다.");
+		return new ResultMsg<MemberModel>(false, memberName);
 	}
 	@GetMapping("/member/find/{memberNO}")
 	public @ResponseBody ResultMsg<MemberModel> getMemberNO(@PathVariable ("memberNO") int memberNO){
