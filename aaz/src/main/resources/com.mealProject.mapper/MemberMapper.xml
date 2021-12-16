@@ -65,7 +65,7 @@ update meal set todayMeal=1 where mealName=#{param1}
 update meal set todayMeal=0 where mealNo=#{param1}
 </update>
 <insert id="mealInsert">
-INSERT INTO meal(menuNo,mealName,price,maxCount,tadayMeal) VALUES(#{menuNo},#{mealName},#{price},#{maxCount},#{tadayMeal})
+INSERT INTO meal(menuNo,mealName,price,maxCount,todayMeal) VALUES(#{menuNo},#{mealName},#{price},#{maxCount},#{todayMeal})
     </insert>
     
  <update id="updateMeal">

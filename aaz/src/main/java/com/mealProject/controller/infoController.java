@@ -108,17 +108,17 @@ public class infoController {
 	}
 	@GetMapping("/meal/insert")
 	   public @ResponseBody ResultMsg<String> getMealInsert(MealModel model) {
-	      return new ResultMsg<String>(true, "Anything you want to send");
+	      return new ResultMsg<String>(true, "Anything you want to send",Integer.toString(memberService.InsertMeal(model)));
 	   }
 	
 	@GetMapping("/meal/updateMenu")
 	public @ResponseBody ResultMsg<String> getMealUpdateTrue(MealModel model){
-		return new ResultMsg<String>(true, "Anything you want to send");
+		return new ResultMsg<String>(true, "Anything you want to send",Integer.toString(memberService.UpdateMeal(model)));
 	}
 	
 	@GetMapping("/member/insert")
 	public @ResponseBody ResultMsg<String> getMemInsert( MemberModel model){
-		return new ResultMsg<String>(true, "Anything you want to send");
+		return new ResultMsg<String>(true, "Anything you want to send",Integer.toString(memberService.InsertMember(model)));
 	}
 	
 	
