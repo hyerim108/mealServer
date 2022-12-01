@@ -1,6 +1,6 @@
 # springbootServer
 
-######MemberMapper.xml
+##### MemberMapper.xml
   <mapper namespace="com.mealProject.mapper.MemberMapper">
     
     <select id="findAll" resultType="com.mealProject.model.MemberModel">
